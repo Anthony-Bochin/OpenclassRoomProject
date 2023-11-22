@@ -19,10 +19,46 @@ h1 {
   margin: 0px;
 }
 
+.heart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heart .full {
+  display: none !important;
+}
+.heart:hover .empty {
+  display: none !important;
+}
+.heart:hover .full {
+  display: flex !important;
+}
+.heart i.gradient-text {
+  background: linear-gradient(to bottom, #9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.kek {
+  border: transparent;
+}
+
+.empty,
+.full {
+  height: 24px;
+}
+
 /****** général ***********/
 /****** Nav Bar et Header ***********/
 header {
   height: 113px;
+}
+
+.check {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
 }
 
 .navbar {
@@ -87,6 +123,10 @@ header {
   margin: 0px;
 }
 
+.fa-heart {
+  color: black;
+}
+
 .reservation__decouvrez {
   display: flex;
   justify-content: center;
@@ -110,6 +150,11 @@ header {
   box-shadow: 0px 3px 7px 3px rgba(0, 0, 0, 0.2);
   margin-top: 30px;
   margin-left: 10px;
+  transition: transform 450ms;
+}
+.reservation__btn:hover {
+  transform: scale(1.01);
+  opacity: 0.7;
 }
 
 /****** Fonctionnement ***********/
@@ -254,9 +299,13 @@ header {
   position: relative;
 }
 .restaurant__card--1 .restaurant__card--coeur {
-  position: absolute;
-  top: 25px;
-  right: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+.restaurant__card--1 .restaurant__card--coeur .fa-xl {
+  line-height: 1em;
 }
 
 .restaurant__card--1 img {
@@ -268,7 +317,8 @@ header {
 }
 
 .restaurant__card--text {
-  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
 .restaurant__card--text h3,
@@ -364,6 +414,12 @@ body {
   max-width: 1440px;
   height: 100%;
 }
+body .menu__titre--1,
+body .menu__titre--2 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 body header {
   height: 113px;
 }
@@ -448,20 +504,20 @@ body .contenu .contenu__principale .contenu__principale--menu .menu_entree .menu
   font-size: 18px;
   height: 21px;
   margin: 18px;
-  margin-top: 15px;
-  margin-bottom: 8px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   margin-right: 0px;
-  margin-left: 9px;
+  margin-left: 17px;
 }
 body .contenu .contenu__principale .contenu__principale--menu .menu_entree .menu__titre--2 {
   font-weight: 300;
   font-size: 15px;
   margin: 18px;
   margin-top: 9px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   height: 19px;
   margin-right: 0px;
-  margin-left: 9px;
+  margin-left: 16px;
 }
 body .contenu .contenu__principale .contenu__principale--menu .menu_entree .menu__prix {
   font-size: 15px;
@@ -479,13 +535,40 @@ body .contenu .contenu__principale .contenu__principale--menu .menu_entree .menu
   display: flex;
   align-items: flex-start;
 }
+body .contenu .contenu__principale .contenu__principale--menu .menu_entree .card_entree--bloc {
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
 body .contenu .contenu__principale .contenu__principale--menu .menu_entree .card_entree {
+  height: 69px;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 3px;
   border-radius: 25px;
+  overflow: hidden;
+}
+body .contenu .contenu__principale .contenu__principale--menu .menu_entree .card_entree .svg__vert {
+  width: 60px;
+  height: 69px;
+  transition: transform 0.3s ease;
+  transform: translateX(60px);
+}
+body .contenu .contenu__principale .contenu__principale--menu .menu_entree .card_entree .menu__prix {
+  transition: transform 0.3s ease;
+  transform: translateX(60px);
+}
+body .contenu .contenu__principale .contenu__principale--menu .menu_entree .card_entree:hover .svg__vert,
+body .contenu .contenu__principale .contenu__principale--menu .menu_entree .card_entree:hover .menu__prix {
+  transform: translateX(0);
 }
 body .Commander__btn {
   display: flex;
@@ -505,6 +588,11 @@ body .Commander__btn .Commander__btn--1 {
   justify-content: center;
   align-items: center;
   font-size: 16px;
+  transition: transform 400ms;
+}
+body .Commander__btn .Commander__btn--1:hover {
+  transform: scale(1.02);
+  opacity: 0.7;
 }
 body .restaurant__pc {
   background-color: #F6F6F6;
@@ -517,6 +605,10 @@ body .restaurant__pc {
   }
   body .image__menu img {
     height: 383px;
+  }
+  body .menu__titre--1,
+  body .menu__titre--2 {
+    max-width: 480px;
   }
   .reservation__reservez,
   .reservation__decouvrez {
